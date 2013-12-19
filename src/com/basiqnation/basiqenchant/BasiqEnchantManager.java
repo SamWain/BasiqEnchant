@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Set;
 
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.event.enchantment.EnchantItemEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
 
 public class BasiqEnchantManager {
 
@@ -19,12 +19,19 @@ public class BasiqEnchantManager {
 		}
 	}
 
-	public static void EnchantDisable(Set<Enchantment> e, ItemStack item,
-			EnchantItemEvent event) {
-		if (list.contains(e)) {
-			event.setCancelled(true);
-
+	public static void EnchantDisable(Set<Enchantment> e, EnchantItemEvent event) {
+		for (Enchantment en : e) {
+			if (list.contains(en)) {
+				event.setCancelled(true);
+			}
 		}
 	}
 
+	public static void BookDisable(Set<Enchantment> e, InventoryClickEvent event) {
+		for (Enchantment en : e) {
+			if (list.contains(en)) {
+				event.setCancelled(true);
+			}
+		}
+	}
 }
