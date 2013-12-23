@@ -1,4 +1,4 @@
-Banned:
+banned:
   - ARROW_DAMAGE
   - ARROW_FIRE
   - ARROW_INFINITE
@@ -12,3 +12,4 @@ Banned:
   - PROTECTION_PROJECTILE
   - PROTECTION_EXPLOSIONS
   - THORNS
+message: "You cannot do that!"

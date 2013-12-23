@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.logging.Logger;
 
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -29,7 +30,8 @@ public class EnchantListener implements Listener {
 	public void onEnchant(final EnchantItemEvent event) {
 		Map<Enchantment, Integer> Enchants = event.getEnchantsToAdd();
 		Set<Enchantment> Keys = Enchants.keySet();
-		BasiqEnchantManager.EnchantDisable(Keys, event);
+		Player player = event.getEnchanter();
+		BasiqEnchantManager.EnchantDisable(Keys, event, player);
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
@@ -46,7 +48,8 @@ public class EnchantListener implements Listener {
 					EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item2.getItemMeta();
 					Map<Enchantment, Integer> e = meta.getStoredEnchants();
 					Set<Enchantment> Keys = e.keySet();
-					BasiqEnchantManager.BookDisable(Keys, event);
+					Player player = (Player)event.getWhoClicked();
+					BasiqEnchantManager.BookDisable(Keys, event, player);
 				}
 			}
 		}

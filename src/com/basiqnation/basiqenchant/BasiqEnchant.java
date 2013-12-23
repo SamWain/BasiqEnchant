@@ -14,16 +14,21 @@ public class BasiqEnchant extends JavaPlugin {
 	public static FileConfiguration config;
 	
 	public final static Logger logger = Logger.getLogger("Minecraft");
-	
+	public static String message = "";
 
 	private void startListeners() {
 		getServer().getPluginManager().registerEvents(
 				new EnchantListener(this), this);
 	}
 
-	private void getEnchants() throws FileNotFoundException {
-		List<String> list = BasiqEnchant.this.getConfig().getStringList("Banned");
+	private void loadConfig() throws FileNotFoundException {
+		
+		// get the configured list of enchants
+		List<String> list = BasiqEnchant.this.getConfig().getStringList("banned");
 		BasiqEnchantManager.loadArray(list);
+		
+		// get the configured error message
+		this.message = BasiqEnchant.this.getConfig().getString("message");		
 	}
 
 	@Override
@@ -33,7 +38,7 @@ public class BasiqEnchant extends JavaPlugin {
 			saveDefaultConfig();
 		}
 		try {
-			getEnchants();
+			loadConfig();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,6 +1,6 @@
 name: BasiqEnchant
 main: com.basiqnation.basiqenchant.BasiqEnchant
-version: 0.1
+version: 0.2
 author: BasiqDevs
 depend: [Vault]
 description: Allows specific enchants to be disabled
