@@ -1,2 +1,3 @@
 BasiqEnchant
 ============
+Stop unwanted enchants
