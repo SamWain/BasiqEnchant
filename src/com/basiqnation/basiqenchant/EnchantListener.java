@@ -9,6 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.enchantment.EnchantItemEvent;
+import org.bukkit.event.inventory.BrewEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.AnvilInventory;
 import org.bukkit.inventory.Inventory;
@@ -50,5 +51,11 @@ public class EnchantListener implements Listener {
 			}
 		}
 
+	}
+	
+	@EventHandler(priority = EventPriority.NORMAL)
+	public static void onPotion(BrewEvent event) {
+		
+		
 	}
 }
