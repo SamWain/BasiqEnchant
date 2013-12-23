@@ -25,7 +25,14 @@ public class BasiqEnchantManager {
 		for (Enchantment en : e) {
 			if (list.contains(en)) {
 				event.setCancelled(true);
-				player.sendMessage(ChatColor.DARK_RED + BasiqEnchant.message);
+				
+				String error = "";
+				if (!BasiqEnchant.message.contains("%enchant%")) {
+					error = BasiqEnchant.message;
+				} else {
+					error = BasiqEnchant.message.replace("%enchant%", Format.formatEnchant(en.getName()));
+				}
+				player.sendMessage(ChatColor.DARK_RED + error);
 			}
 		}
 	}
@@ -34,7 +41,16 @@ public class BasiqEnchantManager {
 		for (Enchantment en : e) {
 			if (list.contains(en)) {
 				event.setCancelled(true);
-				player.sendMessage(ChatColor.DARK_RED + BasiqEnchant.message);
+				
+				String error = "";
+				if (!BasiqEnchant.message.contains("%enchant%")) {
+					error = BasiqEnchant.message;
+				} else {
+					error = BasiqEnchant.message.replace("%enchant%", Format.formatEnchant(en.getName()));
+				}
+				player.sendMessage(ChatColor.DARK_RED + error);
+					
+				
 			}
 		}
 	}

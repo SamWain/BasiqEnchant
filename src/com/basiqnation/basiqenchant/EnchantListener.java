@@ -12,6 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.enchantment.EnchantItemEvent;
 import org.bukkit.event.inventory.BrewEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryType.SlotType;
 import org.bukkit.inventory.AnvilInventory;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -49,11 +50,13 @@ public class EnchantListener implements Listener {
 					Map<Enchantment, Integer> e = meta.getStoredEnchants();
 					Set<Enchantment> Keys = e.keySet();
 					Player player = (Player)event.getWhoClicked();
-					BasiqEnchantManager.BookDisable(Keys, event, player);
+					
+					if (event.getSlotType() == SlotType.RESULT){
+						BasiqEnchantManager.BookDisable(Keys, event, player);
+					}
 				}
 			}
 		}
-
 	}
 	
 	@EventHandler(priority = EventPriority.NORMAL)

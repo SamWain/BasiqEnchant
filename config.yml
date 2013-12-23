@@ -1,15 +1,30 @@
+# For a list of enchantments: http://jd.bukkit.org/rb/apidocs/org/bukkit/enchantments/Enchantment.html
+# If you want something banned, just uncomment it!
 banned:
   - ARROW_DAMAGE
-  - ARROW_FIRE
-  - ARROW_INFINITE
-  - ARROW_KNOCKBACK
-  - DAMAGE_ALL
-  - FIRE_ASPECT
-  - KNOCKBACK
-  - PROTECTION_ENVIRONMENTAL
-  - PROTECTION_FALL
-  - PROTECTION_FIRE
-  - PROTECTION_PROJECTILE
-  - PROTECTION_EXPLOSIONS
-  - THORNS
-message: "You cannot do that!"
+  - ARROW_FIRE 
+  - ARROW_INFINITE 
+  - ARROW_KNOCKBACK 
+  - DAMAGE_ALL 
+#  - DAMAGE_ARTHROPODS 
+#  - DAMAGE_UNDEAD 
+#  - DIG_SPEED 
+#  - DURABILITY 
+  - FIRE_ASPECT 
+  - KNOCKBACK 
+#  - LOOT_BONUS_BLOCKS 
+#  - LOOT_BONUS_MOBS 
+#  - LUCK
+#  - LURE
+#  - OXYGEN 
+#  - PROTECTION_ENVIRONMENTAL 
+  - PROTECTION_EXPLOSIONS 
+  - PROTECTION_FALL 
+  - PROTECTION_FIRE 
+  - PROTECTION_PROJECTILE 
+#  - SILK_TOUCH 
+  - THORNS 
+#  - WATER_WORKER
+
+# Hint: use %enchant% to show which enchantment is denied.
+message: "You cannot enchant: %enchant%"
