@@ -1,5 +1,6 @@
 package com.basiqnation.basiqenchant;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -10,7 +11,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.enchantment.EnchantItemEvent;
-import org.bukkit.event.inventory.BrewEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType.SlotType;
 import org.bukkit.inventory.AnvilInventory;
@@ -29,10 +29,10 @@ public class EnchantListener implements Listener {
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void onEnchant(final EnchantItemEvent event) {
-		Map<Enchantment, Integer> Enchants = event.getEnchantsToAdd();
+		Map<Enchantment, Integer> Enchants = event.getEnchantsToAdd(); 
 		Set<Enchantment> Keys = Enchants.keySet();
 		Player player = event.getEnchanter();
-		BasiqEnchantManager.EnchantDisable(Keys, event, player);
+		BasiqEnchantManager.EnchantDisable(Enchants, Keys, event, player);
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
@@ -46,22 +46,18 @@ public class EnchantListener implements Listener {
 			if (item1 != null && item2 != null) {
 				Material id2 = item2.getType();
 				if (id2 == Material.ENCHANTED_BOOK) {
-					EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item2.getItemMeta();
+					EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item2
+							.getItemMeta();
 					Map<Enchantment, Integer> e = meta.getStoredEnchants();
 					Set<Enchantment> Keys = e.keySet();
-					Player player = (Player)event.getWhoClicked();
-					
-					if (event.getSlotType() == SlotType.RESULT){
+					Player player = (Player) event.getWhoClicked();
+
+					if (event.getSlotType() == SlotType.RESULT) {
 						BasiqEnchantManager.BookDisable(Keys, event, player);
 					}
 				}
 			}
 		}
 	}
-	
-	@EventHandler(priority = EventPriority.NORMAL)
-	public static void onPotion(BrewEvent event) {
-		
-		
-	}
+
 }

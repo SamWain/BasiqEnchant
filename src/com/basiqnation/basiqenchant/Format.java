@@ -1,5 +1,7 @@
 package com.basiqnation.basiqenchant;
 
+
+
 public class Format {
 	
 	public static String formatEnchant(String enchant){
