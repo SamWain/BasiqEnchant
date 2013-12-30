@@ -1,8 +1,8 @@
 package com.basiqnation.basiqenchant;
 
-import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 import org.bukkit.enchantments.Enchantment;
@@ -29,10 +29,16 @@ public class EnchantListener implements Listener {
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void onEnchant(final EnchantItemEvent event) {
-		Map<Enchantment, Integer> Enchants = event.getEnchantsToAdd(); 
+		Map<Enchantment, Integer> Enchants = event.getEnchantsToAdd();
+		ConcurrentHashMap<String, Integer> Name = new ConcurrentHashMap<String, Integer>();
 		Set<Enchantment> Keys = Enchants.keySet();
+		for(Enchantment s: Keys){
+			String string = s.getName();
+			Integer i = Enchants.get(s);
+			Name.put(string, i);
+		}
 		Player player = event.getEnchanter();
-		BasiqEnchantManager.EnchantDisable(Enchants, Keys, event, player);
+		BasiqEnchantManager.EnchantDisable(Name, event, player);
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
@@ -46,14 +52,20 @@ public class EnchantListener implements Listener {
 			if (item1 != null && item2 != null) {
 				Material id2 = item2.getType();
 				if (id2 == Material.ENCHANTED_BOOK) {
+					ConcurrentHashMap<String, Integer> Name = new ConcurrentHashMap<String, Integer>();
 					EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item2
 							.getItemMeta();
 					Map<Enchantment, Integer> e = meta.getStoredEnchants();
 					Set<Enchantment> Keys = e.keySet();
 					Player player = (Player) event.getWhoClicked();
+					for(Enchantment s: Keys){
+						String string = s.getName();
+						Integer i = e.get(s);
+						Name.put(string, i);
+					}
 
 					if (event.getSlotType() == SlotType.RESULT) {
-						BasiqEnchantManager.BookDisable(Keys, event, player);
+						BasiqEnchantManager.BookDisable(Name, event, player);
 					}
 				}
 			}

@@ -1,30 +1,32 @@
 # For a list of enchantments: http://jd.bukkit.org/rb/apidocs/org/bukkit/enchantments/Enchantment.html
 # If you want something banned, just uncomment it!
+# Values on the end are the maximum enchantment levels for banned enchantments.
+# If you want to disable a enchant completely set the number to 0!
 banned:
-  - ARROW_DAMAGE
-  - ARROW_FIRE 
-  - ARROW_INFINITE 
-  - ARROW_KNOCKBACK 
-  - DAMAGE_ALL 
-#  - DAMAGE_ARTHROPODS 
-#  - DAMAGE_UNDEAD 
-#  - DIG_SPEED 
-#  - DURABILITY 
-  - FIRE_ASPECT 
-  - KNOCKBACK 
-#  - LOOT_BONUS_BLOCKS 
-#  - LOOT_BONUS_MOBS 
-#  - LUCK
-#  - LURE
-#  - OXYGEN 
-#  - PROTECTION_ENVIRONMENTAL 
-  - PROTECTION_EXPLOSIONS 
-  - PROTECTION_FALL 
-  - PROTECTION_FIRE 
-  - PROTECTION_PROJECTILE 
-#  - SILK_TOUCH 
-  - THORNS 
-#  - WATER_WORKER
+    - ARROW_DAMAGE:0 
+    - ARROW_FIRE:0
+    - ARROW_INFINITE:0 
+    - ARROW_KNOCKBACK:0 
+    - DAMAGE_ALL:1
+ #  - DAMAGE_ARTHROPODS:0 
+ #  - DAMAGE_UNDEAD:0 
+ #  - DIG_SPEED:0 
+ #  - DURABILITY:0 
+    - FIRE_ASPECT:0 
+    - KNOCKBACK:0
+ #  - LOOT_BONUS_BLOCKS:0 
+ #  - LOOT_BONUS_MOBS:0
+ #  - LUCK:0
+ #  - LURE:0
+ #  - OXYGEN:0
+    - PROTECTION_ENVIRONMENTAL:1 
+    - PROTECTION_EXPLOSIONS:1 
+    - PROTECTION_FALL:0
+    - PROTECTION_FIRE:0
+    - PROTECTION_PROJECTILE:1 
+ #  - SILK_TOUCH:0 
+    - THORNS:0
+ #  - WATER_WORKER:0
 
 # Hint: use %enchant% to show which enchantment is denied.
 message: "You cannot enchant: %enchant%"
