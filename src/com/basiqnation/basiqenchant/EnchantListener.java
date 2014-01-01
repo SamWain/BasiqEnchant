@@ -1,8 +1,8 @@
 package com.basiqnation.basiqenchant;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 import org.bukkit.enchantments.Enchantment;
@@ -30,7 +30,7 @@ public class EnchantListener implements Listener {
 	@EventHandler(priority = EventPriority.NORMAL)
 	public void onEnchant(final EnchantItemEvent event) {
 		Map<Enchantment, Integer> Enchants = event.getEnchantsToAdd();
-		ConcurrentHashMap<String, Integer> Name = new ConcurrentHashMap<String, Integer>();
+		HashMap<String, Integer> Name = new HashMap<String, Integer>();
 		Set<Enchantment> Keys = Enchants.keySet();
 		for(Enchantment s: Keys){
 			String string = s.getName();
@@ -52,7 +52,7 @@ public class EnchantListener implements Listener {
 			if (item1 != null && item2 != null) {
 				Material id2 = item2.getType();
 				if (id2 == Material.ENCHANTED_BOOK) {
-					ConcurrentHashMap<String, Integer> Name = new ConcurrentHashMap<String, Integer>();
+					HashMap<String, Integer> Name = new HashMap<String, Integer>();
 					EnchantmentStorageMeta meta = (EnchantmentStorageMeta) item2
 							.getItemMeta();
 					Map<Enchantment, Integer> e = meta.getStoredEnchants();

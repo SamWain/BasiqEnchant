@@ -1,7 +1,7 @@
 package com.basiqnation.basiqenchant;
 
+import java.util.HashMap;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -10,16 +10,16 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 
 public class BasiqEnchantManager {
 
-	private static ConcurrentHashMap<String, Integer> list = new ConcurrentHashMap<String, Integer>();
+	private static HashMap<String, Integer> list = new HashMap<String, Integer>();
 
-	public static void loadArray(ConcurrentHashMap<String, Integer> Enchants) {
+	public static void loadArray(HashMap<String, Integer> Enchants) {
 		Set<String> set = Enchants.keySet();
 		for (String s : set) {
 			list.put(s, Enchants.get(s));
 		}
 	}
 
-	public static void EnchantDisable(ConcurrentHashMap<String, Integer> map,
+	public static void EnchantDisable(HashMap<String, Integer> map,
 			EnchantItemEvent event, Player player) {
 		Set<String> e = map.keySet();
 		for (String en : e) {
@@ -40,7 +40,7 @@ public class BasiqEnchantManager {
 		}
 	}
 
-	public static void BookDisable(ConcurrentHashMap<String, Integer> map,
+	public static void BookDisable(HashMap<String, Integer> map,
 			InventoryClickEvent event, Player player) {
 		Set<String> e = map.keySet();
 		for (String en : e) {

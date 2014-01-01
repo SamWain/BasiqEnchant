@@ -1,13 +1,13 @@
 package com.basiqnation.basiqenchant;
 
+import java.util.HashMap;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 
 
 public class EnchantLevel {
 
-	public static boolean isAllowed(ConcurrentHashMap<String, Integer> e,
-			ConcurrentHashMap<String, Integer> m, Set<String> Keys) {
+	public static boolean isAllowed(HashMap<String, Integer> e,
+			HashMap<String, Integer> m, Set<String> Keys) {
 		Integer count = 0;
 		
 		for (String k : Keys) {

@@ -1,9 +1,9 @@
 package com.basiqnation.basiqenchant;
 
+import java.util.HashMap;
 import java.util.List;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 import org.bukkit.configuration.file.FileConfiguration;
@@ -12,7 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class BasiqEnchant extends JavaPlugin {
 	
-	private ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<String, Integer>();
+	private HashMap<String, Integer> map = new HashMap<String, Integer>();
 	
 	public static FileConfiguration config;
 	
