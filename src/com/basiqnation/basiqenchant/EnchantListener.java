@@ -12,6 +12,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.enchantment.EnchantItemEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryType.SlotType;
 import org.bukkit.inventory.AnvilInventory;
 import org.bukkit.inventory.Inventory;
@@ -40,9 +41,18 @@ public class EnchantListener implements Listener {
 		Player player = event.getEnchanter();
 		BasiqEnchantManager.EnchantDisable(Name, event, player);
 	}
+	@EventHandler(priority = EventPriority.NORMAL)
+	public static void onInventoryClose(InventoryCloseEvent event){
+		Inventory inv = event.getInventory();
+		if (inv instanceof AnvilInventory) {
+			Player p = (Player) event.getPlayer();
+			BasiqEnchantManager.onClose(p);
+		}
+		
+	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
-	public static void onInventoryClick(InventoryClickEvent event) {
+	public static void onInventoryClick(InventoryClickEvent event) throws InterruptedException {
 		Inventory inv = event.getInventory();
 		if (inv instanceof AnvilInventory) {
 			AnvilInventory anvil = (AnvilInventory) inv;
@@ -73,3 +83,5 @@ public class EnchantListener implements Listener {
 	}
 
 }
+
+	
